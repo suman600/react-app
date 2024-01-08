@@ -1,44 +1,29 @@
-import React, {useDebugValue} from "react";
-import Card from "../../shared/Card";
-import {useState, useEffect} from "react";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchUsersRequest } from '../../actions/userActions';
+import Card from '../../shared/Card';
 
+const Users = () => {
+    const dispatch = useDispatch();
+    const { users, loading, error } = useSelector((state) => state);
 
+    useEffect(() => {
+        dispatch(fetchUsersRequest());
+    }, [dispatch]);
 
-function Users() {
-    const [data, setData]= useState(null)
-    const [loading, setloading]= useState(true)
-    const [error, setError]= useState(null)
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error.message}</p>;
 
-    useEffect(()=>{
-        fetch('https://jsonplaceholder.typicode.com/users')
-            .then((response)=> response.json())
-
-            .then((apiData)=>{
-                setData(apiData)
-                setError(null)
-            })
-            .catch((error)=>{
-                console.log(error.message)
-                setError(error.message);
-                setData(null)
-            })
-            .finally(()=>{
-                setloading(false)
-            })
-    },[])
     return (
-        <div className={'container'}>
-            {loading && <div>loading...</div>}
-            {error && <div>`There is a problem fetching the post data - ${error}`</div>}
-            <div className={'card-grid'}>
-                {data &&
-                    data.map((user, id) => (
-                        <Card userData={user} key={id} />
-                    ))
-                }
+        <div>
+            <h1>User List</h1>
+            <div>
+                {users.map((user) => (
+                    <Card key={user.id} user={user} />
+                ))}
             </div>
         </div>
-        );
-}
+    );
+};
 
 export default Users;

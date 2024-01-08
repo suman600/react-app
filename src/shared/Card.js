@@ -1,27 +1,14 @@
-import React from "react";
+import React from 'react';
 
-function Card({userData}){
-    return(
-    <>
+const Card = ({ user }) => {
+    return (
         <div className="card">
-            <div className="card-header">
-                <h3 className="card-title">Name {userData.name}</h3>
-            </div>
-            <div className="card-body">
-                <h4>Email {userData.email}</h4>
-                <h5>phone: {userData.phone}</h5>
-            </div>
-            <div className="card-footer">
-                <address>
-                    street: {userData.address.street},
-                    suite: {userData.address.suite},
-                    city: {userData.address.city},
-                    zipcode: {userData.address.zipcode},
-                </address>
-            </div>
+            <h2>{user.name}</h2>
+            <p>Email: {user.email}</p>
+            <p>Phone: {user.phone}</p>
+            {/* Add other user details as needed */}
         </div>
-    </>
-    )
-}
+    );
+};
 
 export default Card;
