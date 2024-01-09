@@ -1,5 +1,3 @@
-// src/index.js
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createStore, applyMiddleware } from 'redux';
@@ -9,16 +7,12 @@ import App from './App';
 import rootReducer from './reducers/userReducer';
 import rootSaga from './sagas/rootSaga';
 
-// Create saga middleware
 const sagaMiddleware = createSagaMiddleware();
 
-// Create Redux store with saga middleware
 const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
 
-// Run the saga middleware
 sagaMiddleware.run(rootSaga);
 
-// Function to render the app
 const renderApp = () => {
     ReactDOM.createRoot(document.getElementById('root')).render(
         <React.StrictMode>
@@ -29,7 +23,6 @@ const renderApp = () => {
     );
 };
 
-// Initial rendering
 if (module.hot) {
     module.hot.accept('./App', () => {
         setTimeout(renderApp);
