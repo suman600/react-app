@@ -1,7 +1,5 @@
-// src/sagas/userSaga.js
-
 import { takeLatest, put, call } from 'redux-saga/effects';
-import { FETCH_USERS_REQUEST, fetchUsersSuccess, fetchUsersFailure } from '../actions/userActions';
+import { FETCH_USERS_REQUEST, fetchUsersSuccess, fetchUsersFailure } from './userActions';
 
 function* fetchUsers() {
     try {

@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom/client';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
-import App from './App';
-import rootReducer from './reducers/userReducer';
-import rootSaga from './sagas/rootSaga';
-
+import rootReducer from './routes/users/states/userReducer';
+import rootSaga from './root-sagas/rootSaga';
+import Header from "./shared/sidebar/Sidebar";
+import Sidebar from "./shared/header/Header";
+import  './index.css'
+import AppRoutes from "./routes";
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
@@ -17,16 +19,16 @@ const renderApp = () => {
     ReactDOM.createRoot(document.getElementById('root')).render(
         <React.StrictMode>
             <Provider store={store}>
-                <App />
+                <Sidebar></Sidebar>
+                <section>
+                    <Header></Header>
+                    <main>
+                        <AppRoutes></AppRoutes>
+                    </main>
+                </section>
             </Provider>
         </React.StrictMode>
     );
 };
-
-if (module.hot) {
-    module.hot.accept('./App', () => {
-        setTimeout(renderApp);
-    });
-}
 
 renderApp();

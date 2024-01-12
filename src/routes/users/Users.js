@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchUsersRequest } from '../../actions/userActions';
-import Card from '../../shared/Card';
+import { fetchUsersRequest } from './states/userActions';
+import Card from '../../shared/card/Card';
 
 const Users = () => {
     const dispatch = useDispatch();
