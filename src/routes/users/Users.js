@@ -4,6 +4,12 @@ import { fetchUsersRequest } from './states/userActions';
 import Card from '../../shared/card/Card';
 
 const Users = () => {
+    const gridStyle = {
+        'display': 'grid',
+        'gridTemplateColumns': 'repeat(4, 1fr)',
+        'gridGap': '2rem'
+    };
+
     const dispatch = useDispatch();
     const { users, loading, error } = useSelector((state) => state);
 
@@ -11,18 +17,21 @@ const Users = () => {
         dispatch(fetchUsersRequest());
     }, [dispatch]);
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error: {error.message}</p>;
-
+    // if (error) return <p>Error: {error.message}</p>;
     return (
-        <div>
-            <h1>User List</h1>
-            <div>
-                {users.map((user) => (
-                    <Card key={user.id} user={user} />
-                ))}
-            </div>
-        </div>
+        <>
+            {users && users?.length && !loading > 0 ? (
+                <div style={gridStyle}>
+                    {users.map((user) => (
+                        <Card key={user.id} user={user} loading={loading} />
+                    ))}
+                </div>
+            ) : (
+                <div style={gridStyle}>
+                    {[0,1,2,3,4,5,6,7].map(() => <Card loading={loading} />)}
+                </div>
+            )}
+        </>
     );
 };
 

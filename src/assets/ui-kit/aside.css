@@ -1,0 +1,23 @@
+.sideNav{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.sideNavItem{
+    padding: 10px 1rem;
+}
+.sideNavItemLink{
+    color: var(--light-color);
+    font-size: 18px;
+    text-decoration: none;
+}
+
+
+@media (prefers-color-scheme: dark) {
+    .sideNavItemLink{
+        color: var(--dark-color);
+    }
+}
+.themeDark .sideNavItemLink{
+    color: var(--dark-color);
+}

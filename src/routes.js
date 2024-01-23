@@ -7,14 +7,12 @@ import NotFound from "./routes/not-found/NotFound";
 
 function AppRoutes() {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Dashboard />} />
-                <Route path="/users" element={<Users />} />
-                <Route path="/game" element={<Game />} />
-                <Route path="*" element={<NotFound />} />
-            </Routes>
-        </BrowserRouter>
+        <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/users" element={<Users />} />
+            <Route path="/game" element={<Game />} />
+            <Route path="*" element={<NotFound />} />
+        </Routes>
     );
 }
 

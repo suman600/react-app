@@ -1,0 +1,108 @@
+.navToggler{
+    display: flex;
+    align-items: center;
+    background: none;
+    padding: 0;
+    border: 0;
+    outline: 0;
+}
+.navToggler img{
+    width: 16px;
+}
+.headerText{
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 22px;
+    color: var(--dark-color);
+}
+.styleSwitcher{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.styleSwitcher button{
+    background: transparent;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    font-weight: bold;
+    width: 160px;
+    color: #fff;
+    border: 1px solid #fff;
+}
+.dropdown{
+    padding: 12px 12px;
+    margin: 0;
+    text-align: left;
+    position: absolute;
+    top: 39px;
+    background: var(--light-bg);
+    width: 160px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: 1px solid var(--light-border);
+    list-style: none;
+}
+.dropdown button{
+    background: var(--dark-header-bg);
+    width: 100%;
+    text-align: left;
+    font-weight: 400;
+    border: 1px solid var(--light-border);
+    color: var(--light-color);
+}
+.styleSwitcher button img{
+    filter: brightness(0);
+}
+.styleSwitcher button:hover,
+.styleSwitcher button.active{
+    background: var(--light-border);
+}
+
+@media (prefers-color-scheme: dark) {
+    .styleSwitcher button{
+        border: 1px solid var(--dark-border);
+    }
+    .styleSwitcher button img{
+        filter: brightness(1);
+    }
+    .dropdown{
+        border: 1px solid var(--dark-border);
+        background: var(--dark-bg);
+    }
+    .dropdown button{
+        background: var(--dark-bg);
+        color: var(--dark-color);
+    }
+    .styleSwitcher button:hover,
+    .styleSwitcher button.active{
+        background: var(--dark-header-bg);
+    }
+}
+
+.themeDark .styleSwitcher button{
+    border: 1px solid var(--dark-border);
+}
+.themeDark .styleSwitcher button img{
+    filter: brightness(1);
+}
+
+.themeDark .dropdown{
+    border: 1px solid var(--dark-border);
+    background: var(--dark-bg);
+}
+.themeDark .dropdown button{
+    background: var(--dark-bg);
+    color: var(--dark-color);
+}
+.themeDark .styleSwitcher button:hover,
+.themeDark .styleSwitcher button.active{
+    background: var(--dark-header-bg);
+}

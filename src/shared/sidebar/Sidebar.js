@@ -1,17 +1,19 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-function Sidebar() {
+import {useNavigate} from "react-router-dom";
+function Sidebar({showSidebar}) {
+
     return (
-        <aside>
+        <aside className={`${showSidebar ? '': 'hidden'}`}>
             <ul className="sideNav">
-                <li className="sideNavItem">
-                    <a className="sideNavItemLink" href="/">Dashboard</a>
+                <li className="sideNavItem" >
+                    <Link className="sideNavItemLink"  to={"/"}>Dashboard</Link>
                 </li>
                 <li className="sideNavItem">
-                    <a className="sideNavItemLink" href="/game">Game</a>
+                    <Link className="sideNavItemLink" to={"/game"}>Game</Link>
                 </li>
                 <li className="sideNavItem">
-                    <a className="sideNavItemLink" href="/users">Users</a>
+                    <Link className="sideNavItemLink" to={"/users"}>Users</Link>
                 </li>
             </ul>
 
