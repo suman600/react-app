@@ -13,11 +13,11 @@
 }
 
 
-@media (prefers-color-scheme: dark) {
-    .sideNavItemLink{
-        color: var(--dark-color);
-    }
-}
+/*@media (prefers-color-scheme: dark) {*/
+/*    .sideNavItemLink{*/
+/*        color: var(--dark-color);*/
+/*    }*/
+/*}*/
 .themeDark .sideNavItemLink{
     color: var(--dark-color);
 }

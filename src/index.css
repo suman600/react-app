@@ -34,21 +34,21 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
-  body {
-    background-color: var(--dark-bg);
-    color: var(--dark-color);
-    transition: all .3s;
-  }
-  header{
-    box-shadow: var(--dark-box-shadow);
-    background: var(--dark-header-bg)
-  }
-  aside{
-    border: 1px solid var(--dark-border);
-  }
-  main{
-    border: 1px solid var(--dark-border);
-  }
+  /*body {*/
+  /*  background-color: var(--dark-bg);*/
+  /*  color: var(--dark-color);*/
+  /*  transition: all .3s;*/
+  /*}*/
+  /*header{*/
+  /*  box-shadow: var(--dark-box-shadow);*/
+  /*  background: var(--dark-header-bg)*/
+  /*}*/
+  /*aside{*/
+  /*  border: 1px solid var(--dark-border);*/
+  /*}*/
+  /*main{*/
+  /*  border: 1px solid var(--dark-border);*/
+  /*}*/
 }
 
 .themeDark{

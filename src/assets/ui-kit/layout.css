@@ -46,11 +46,11 @@ aside.hidden{
     margin-left: -290px;
 }
 
-@media (prefers-color-scheme: dark) {
-    .layout{
-        border: 1px solid var(--dark-border);
-    }
-}
+/*@media (prefers-color-scheme: dark) {*/
+/*    .layout{*/
+/*        border: 1px solid var(--dark-border);*/
+/*    }*/
+/*}*/
 .themeDark .layout{
     background: var(--dark-bg);
 }
