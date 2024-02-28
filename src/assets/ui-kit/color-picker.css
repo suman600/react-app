@@ -1,0 +1,25 @@
+.card--color-picker{
+    padding: 0;
+}
+.card--color-picker .btn-flex{
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+    margin-bottom: 1rem;
+}
+.card--color-picker .btn{
+    border-color: var(--light-border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 4px;
+    min-width: 120px;
+}
+.card--color-picker canvas{
+    margin-right: 1rem;
+}
+.card--color-picker .btn:hover,
+.card--color-picker .btn.active{
+    background: rgba(33,37,41, .03);
+    color: var(--light-color);
+}

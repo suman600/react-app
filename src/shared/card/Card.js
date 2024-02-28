@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Card = ({ user, loading }) => {
+function Card({ user, loading }) {
 
     return (
         loading ? (
@@ -17,6 +17,6 @@ const Card = ({ user, loading }) => {
             </div>
         )
     );
-};
+}
 
 export default Card;

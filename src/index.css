@@ -3,6 +3,7 @@
 @import "assets/ui-kit/card.css";
 @import "assets/ui-kit/header.css";
 @import "assets/ui-kit/aside.css";
+@import "assets/ui-kit/color-picker.css";
 
 
 
@@ -66,3 +67,5 @@ body {
 .themeDark main{
   border: 1px solid var(--dark-border);
 }
+
+

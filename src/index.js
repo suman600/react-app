@@ -15,7 +15,7 @@ const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
 sagaMiddleware.run(rootSaga);
 
 
-const App = () => {
+function App() {
     const [showSidebar, setShowSidebar] = useState(true);
     const toggleSidebar = () => {
         setShowSidebar(!showSidebar);
@@ -35,9 +35,9 @@ const App = () => {
             </Provider>
         </React.StrictMode>
     );
-};
-const renderApp = () => {
+}
+function renderApp() {
     ReactDOM.createRoot(document.getElementById('root')).render(<App />);
-};
+}
 
 renderApp();

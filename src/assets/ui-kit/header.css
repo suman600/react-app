@@ -49,6 +49,7 @@
     gap: 8px;
     border: 1px solid var(--light-border);
     list-style: none;
+    z-index: 99;
 }
 .dropdown button{
     background: var(--dark-header-bg);

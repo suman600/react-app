@@ -15,6 +15,9 @@ function Sidebar({showSidebar}) {
                 <li className="sideNavItem">
                     <Link className="sideNavItemLink" to={"/users"}>Users</Link>
                 </li>
+                <li className="sideNavItem">
+                    <Link className="sideNavItemLink" to={"/color"}>Color Picker</Link>
+                </li>
             </ul>
 
         </aside>

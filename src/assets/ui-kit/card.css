@@ -1,9 +1,14 @@
 .card{
-    background-color: rgb(18, 18, 18);
-    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    background-color: var(--light-bg);
     border-radius: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    overflow: hidden;
+    border: 1px solid var(--light-border);
     padding: 1rem;
-    color: #fff;
+    color: var(--light-color);
+    overflow: hidden;
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+.themeDark .card{
+    background-color:  var(--dark-bg);
+    border: 1px solid var(--dark-border);
+    color: var(--dark-color);
 }

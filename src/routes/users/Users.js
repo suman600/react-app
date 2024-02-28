@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchUsersRequest } from './states/userActions';
 import Card from '../../shared/card/Card';
 
-const Users = () => {
+function Users() {
     const gridStyle = {
         'display': 'grid',
         'gridTemplateColumns': 'repeat(4, 1fr)',
@@ -33,6 +33,6 @@ const Users = () => {
             )}
         </>
     );
-};
+}
 
 export default Users;
