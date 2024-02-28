@@ -37,6 +37,9 @@ function ColorPicker() {
     const [isSpectrum, setIsSpectrum] = useState(false);
     const [isImage, setIsImage] = useState(false);
 
+    function handleDataFromChild(data) {
+        console.log('parent',data)
+    }
     function clickSampler(){
         setIsSampler(true);
         setIsSpectrum(false);
@@ -69,7 +72,7 @@ function ColorPicker() {
                         </button>
                     </div>
                     {isSampler && (
-                        <ColorPalette colors={colorArr} />
+                        <ColorPalette sendCurrentColor={handleDataFromChild} colors={colorArr} />
                     )}
                     {isSpectrum && (
                         // <SpectrumComponent />
