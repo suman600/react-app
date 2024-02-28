@@ -15,11 +15,55 @@
     border-radius: 4px;
     min-width: 120px;
 }
-.card--color-picker canvas{
-    margin-right: 1rem;
-}
 .card--color-picker .btn:hover,
 .card--color-picker .btn.active{
     background: rgba(33,37,41, .03);
     color: var(--light-color);
+}
+.pallet-layout{
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+}
+.card--color-data {
+    padding: 0;
+}
+.card--color-data .color-strip{
+    border: var(--light-border);
+    border-radius: 4px;
+    height: 70px;
+    width: 100%;
+    background: red;
+    margin-bottom: 2rem;
+}
+.card--color-data .input-group{
+    position: relative;
+    flex-wrap: nowrap;
+    width: 100%;
+    border: 1px solid #cccccc;
+    padding: 2px 1rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background: #f8f8f8;
+    margin-bottom: 1.25rem;
+    min-width: 300px;
+
+}
+.card--color-data .input-group span{
+    min-width: 40px;
+}
+.card--color-data input{
+    background: transparent;
+    border-radius: 0;
+    outline: 0;
+    text-align: center;
+    color: var(--light-color);
+    flex: 1;
+    height: 30px;
+    border: 0;
+    border-left: 1px solid #cccccc;
+    letter-spacing: 1px;
 }

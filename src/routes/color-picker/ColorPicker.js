@@ -1,14 +1,15 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import pantone from '../../assets/images/pantone.png';
 import image from '../../assets/images/photo.png';
-import gradient from '../../assets/images/gradient.png';
-import ColorPalette from "../../shared/color-palette/ColorPalette";
+import ColorPalette from "../../shared/colorPalette/ColorPalette";
+import ColorBox from "../../shared/colorBox/ColorBox";
+import ColorData from "../../shared/colorData/colorData";
 
 function ColorPicker() {
     const gridStyle = {
         'display': 'grid',
-        'gridTemplateColumns': 'repeat(2, 1fr)',
-        'gridGap': '2rem'
+        'gridTemplateColumns': 'max-content max-content',
+        'gridGap': '2rem',
     };
     const colorArr = [
         '#FFFFFF', '#F5F5F5', '#EEEEEE', '#E0E0E0', '#BDBDBD', '#9E9E9E', '#757575', '#616161', '#424242', '#000000',
@@ -34,27 +35,27 @@ function ColorPicker() {
         '#D50000', '#FF4081', '#FF79B0', '#F50057', '#C51162', '#C51162', '#D500F9', '#AA00FF', '#6200EA', '#304FFE',
     ];
     const [isSampler, setIsSampler] = useState(true);
-    const [isSpectrum, setIsSpectrum] = useState(false);
     const [isImage, setIsImage] = useState(false);
+    const [currentColor, setCurrentColor] = useState('#6A1B9A')
+    const [colorBoxData, setColorBoxData] = useState(null)
 
     function handleDataFromChild(data) {
-        console.log('parent',data)
+        setCurrentColor(data)
+    }
+    function handleDataFromColorBox(data) {
+        setColorBoxData(data);
     }
     function clickSampler(){
         setIsSampler(true);
-        setIsSpectrum(false);
-        setIsImage(false)
-    }
-    function clickSpectrum(){
-        setIsSampler(false);
-        setIsSpectrum(true);
         setIsImage(false)
     }
     function clickImage(){
         setIsSampler(false);
-        setIsSpectrum(false);
         setIsImage(true)
     }
+    useEffect(() => {
+        // console.log('Color Box Data:', colorBoxData);
+    }, [colorBoxData]);
     return (
         <div style={gridStyle}>
             <div className="card card--color-picker">
@@ -64,26 +65,34 @@ function ColorPicker() {
                         <button className="btn btn-outline-dark" onClick={clickSampler}>
                             <img src={pantone} alt={pantone} width={14} height={14}/>Sampler
                         </button>
-                        <button className="btn btn-outline-dark" onClick={clickSpectrum}>
-                            <img src={gradient} alt={gradient} width={14} height={18}/>Spectrum
-                        </button>
+                        {/*<button className="btn btn-outline-dark" onClick={clickSpectrum}>*/}
+                        {/*    <img src={gradient} alt={gradient} width={14} height={18}/>Spectrum*/}
+                        {/*</button>*/}
                         <button className="btn btn-outline-dark" onClick={clickImage}>
                             <img src={image} alt={image} width={14} height={14}/>Image
                         </button>
                     </div>
                     {isSampler && (
-                        <ColorPalette sendCurrentColor={handleDataFromChild} colors={colorArr} />
+
+                        <div className="pallet-layout">
+                            <ColorPalette sendCurrentColor={handleDataFromChild} colors={colorArr} />
+                            {
+                                currentColor &&
+                                <ColorBox selectedColor={currentColor} sendColorBoxData={handleDataFromColorBox} />
+                            }
+                        </div>
                     )}
-                    {isSpectrum && (
-                        // <SpectrumComponent />
-                        <h1>SpectrumComponent</h1>
-                    )}
+                    {/*{isSpectrum && (*/}
+                    {/*    // <SpectrumComponent />*/}
+                    {/*    <h1>SpectrumComponent</h1>*/}
+                    {/*)}*/}
                     {isImage && (
                         // <ImageComponent />
                         <h1>ImageComponent</h1>
                     )}
                 </div>
             </div>
+            <ColorData getColorBoxData={colorBoxData} getPalletColor={currentColor} />
         </div>
 
     );
