@@ -4,12 +4,11 @@ function ColorData({getColorBoxData, getPalletColor}){
     const [colorBoxData, setColorBoxData] = useState(null)
     const [palletColor, setPalletColor] = useState(null)
 
-    useEffect(()=>{
+    useEffect(() => {
         setColorBoxData(getColorBoxData);
         setPalletColor(getPalletColor);
-    })
-    if (palletColor!==null){console.log('suman',palletColor)}
 
+    }, [getColorBoxData, getPalletColor]);
 
     function hexToRgb(hex, alpha = 1) {
         hex = String(hex);
@@ -71,32 +70,48 @@ function ColorData({getColorBoxData, getPalletColor}){
         return `hsla(${h}, ${s}%, ${l}%, ${alpha})`;
     }
 
+    let hexCode;
+    let x;
+    let y;
+
+    if (colorBoxData) {
+        hexCode = colorBoxData.color || palletColor;
+        x = colorBoxData.x;
+        y = colorBoxData.y;
+    } else {
+        hexCode = palletColor;
+        x = 0;
+        y = 0;
+    }
 
 
-    let hexCode = palletColor || colorBoxData;
     let rgbCode =  hexToRgb(hexCode,1)
     let hslCode =  hexToHsla(hexCode,1)
 
-    return(
+    return (
         <div className="card card--color-data">
             <div className="card-header h5">
                 Edit and Convert Color Code
             </div>
             <div className="card-body">
-                <div className="color-strip" >
-
+                <div className="color-strip" style={{ backgroundColor: hexCode }}></div>
+                <div className="input-group">
+                    <span>HEX</span> <input type="text" value={hexCode} />
                 </div>
                 <div className="input-group">
-                    <span>HEX</span> <input type="text" value={hexCode}/>
+                    <span>RGBA</span> <input type="text" value={rgbCode} />
                 </div>
                 <div className="input-group">
-                    <span>RGBA</span> <input type="text" value={rgbCode}/>
+                    <span>HSL</span> <input type="text" value={hslCode} />
                 </div>
                 <div className="input-group">
-                    <span>HSL</span> <input type="text" value={hslCode}/>
+                    <span>Pixel X</span> <input type="text" value={x} />
+                </div>
+                <div className="input-group">
+                    <span>Pixel Y</span> <input type="text" value={y} />
                 </div>
             </div>
         </div>
-    )
+    );
 }
 export default ColorData;

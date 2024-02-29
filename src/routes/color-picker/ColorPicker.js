@@ -39,7 +39,7 @@ function ColorPicker() {
     const [currentColor, setCurrentColor] = useState('#6A1B9A')
     const [colorBoxData, setColorBoxData] = useState(null)
 
-    function handleDataFromChild(data) {
+    function handleDataFromColorPalette(data) {
         setCurrentColor(data)
     }
     function handleDataFromColorBox(data) {
@@ -54,8 +54,7 @@ function ColorPicker() {
         setIsImage(true)
     }
     useEffect(() => {
-        // console.log('Color Box Data:', colorBoxData);
-    }, [colorBoxData]);
+    }, [colorBoxData, currentColor]);
     return (
         <div style={gridStyle}>
             <div className="card card--color-picker">
@@ -75,10 +74,10 @@ function ColorPicker() {
                     {isSampler && (
 
                         <div className="pallet-layout">
-                            <ColorPalette sendCurrentColor={handleDataFromChild} colors={colorArr} />
+                            <ColorPalette sendCurrentColor={handleDataFromColorPalette} colors={colorArr} />
                             {
-                                currentColor &&
-                                <ColorBox selectedColor={currentColor} sendColorBoxData={handleDataFromColorBox} />
+                            currentColor &&
+                            <ColorBox selectedColor={currentColor} sendColorBoxData={handleDataFromColorBox} />
                             }
                         </div>
                     )}

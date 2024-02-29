@@ -28,8 +28,11 @@ function ColorBox({ selectedColor, sendColorBoxData }) {
 
         // Update cursor position canvas
         updateCursorPositionCanvas(cursorPosition.x, cursorPosition.y);
+        if (currentColorBoxData !== null){
+            sendColorBoxData(currentColorBoxData);
+        }
 
-    }, [selectedColor, cursorPosition]);
+    }, [selectedColor, cursorPosition, currentColorBoxData]);
 
     const rgbToHex = (r, g, b) => `#${((r << 16) | (g << 8) | b).toString(16).padStart(6, '0')}`;
 
@@ -41,10 +44,6 @@ function ColorBox({ selectedColor, sendColorBoxData }) {
         const color = getColorFromPosition(x, y);
 
         setCurrentColorBoxData({ color, x, y });
-
-        if (currentColorBoxData !== null){
-            sendColorBoxData(currentColorBoxData);
-        }
 
     };
 
