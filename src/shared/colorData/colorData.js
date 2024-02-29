@@ -4,6 +4,9 @@ function ColorData({getColorBoxData, getPalletColor}){
     const [colorBoxData, setColorBoxData] = useState(null)
     const [palletColor, setPalletColor] = useState(null)
 
+    const handleClick = (e)=>{
+        e.target.select();
+    }
     useEffect(() => {
         setColorBoxData(getColorBoxData);
         setPalletColor(getPalletColor);
@@ -96,13 +99,13 @@ function ColorData({getColorBoxData, getPalletColor}){
             <div className="card-body">
                 <div className="color-strip" style={{ backgroundColor: hexCode }}></div>
                 <div className="input-group">
-                    <span>HEX</span> <input type="text" value={hexCode} />
+                    <span>HEX</span> <input type="text" onClick={handleClick}  value={hexCode} />
                 </div>
                 <div className="input-group">
-                    <span>RGBA</span> <input type="text" value={rgbCode} />
+                    <span>RGBA</span> <input type="text" onClick={handleClick} value={rgbCode} />
                 </div>
                 <div className="input-group">
-                    <span>HSL</span> <input type="text" value={hslCode} />
+                    <span>HSL</span> <input type="text" onClick={handleClick} value={hslCode} />
                 </div>
                 <div className="input-group">
                     <span>Pixel X</span> <input type="text" value={x} />
