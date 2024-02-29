@@ -41,7 +41,7 @@
     flex-wrap: nowrap;
     width: 100%;
     border: 1px solid #cccccc;
-    padding: 2px 1rem;
+    padding: 2px 12px;
     border-radius: 4px;
     display: flex;
     align-items: center;
@@ -53,7 +53,7 @@
 
 }
 .card--color-data .input-group span{
-    min-width: 40px;
+    min-width: 50px;
 }
 .card--color-data input{
     background: transparent;
@@ -66,4 +66,22 @@
     border: 0;
     border-left: 1px solid #cccccc;
     letter-spacing: 1px;
+}
+
+.themeDark .card--color-picker .btn{
+    border-color: var(--dark-border);
+    color: var(--dark-color);
+}
+.themeDark .card--color-picker .btn img{
+    filter: invert(1);
+}
+.themeDark .card--color-data .input-group{
+    border-color: var(--dark-border);
+    background: transparent;
+    color: var(--dark-color);
+}
+.themeDark .card--color-data input{
+    background: transparent;
+    color: var(--dark-color);
+    border-left-color: var(--dark-border);
 }

@@ -8,7 +8,7 @@ import ColorData from "../../shared/colorData/colorData";
 function ColorPicker() {
     const gridStyle = {
         'display': 'grid',
-        'gridTemplateColumns': 'max-content max-content',
+        'gridTemplateColumns': '880px max-content',
         'gridGap': '2rem',
     };
     const colorArr = [
@@ -51,7 +51,7 @@ function ColorPicker() {
     }
     function clickImage(){
         setIsSampler(false);
-        setIsImage(true)
+        setIsImage(true);
     }
     useEffect(() => {
     }, [colorBoxData, currentColor]);
@@ -61,33 +61,24 @@ function ColorPicker() {
                 <div className="card-header h5">Pick Color</div>
                 <div className="card-body">
                     <div className="btn-flex">
-                        <button className="btn btn-outline-dark" onClick={clickSampler}>
+                        <button className="btn btn-outline-dark active" onClick={clickSampler}>
                             <img src={pantone} alt={pantone} width={14} height={14}/>Sampler
                         </button>
-                        {/*<button className="btn btn-outline-dark" onClick={clickSpectrum}>*/}
-                        {/*    <img src={gradient} alt={gradient} width={14} height={18}/>Spectrum*/}
-                        {/*</button>*/}
-                        <button className="btn btn-outline-dark" onClick={clickImage}>
+                        <button className="btn btn-outline-dark" onClick={clickImage} disabled={true}>
                             <img src={image} alt={image} width={14} height={14}/>Image
                         </button>
                     </div>
                     {isSampler && (
-
                         <div className="pallet-layout">
                             <ColorPalette sendCurrentColor={handleDataFromColorPalette} colors={colorArr} />
                             {
-                            currentColor &&
-                            <ColorBox selectedColor={currentColor} sendColorBoxData={handleDataFromColorBox} />
+                            currentColor && <ColorBox selectedColor={currentColor} sendColorBoxData={handleDataFromColorBox} />
                             }
                         </div>
                     )}
-                    {/*{isSpectrum && (*/}
-                    {/*    // <SpectrumComponent />*/}
-                    {/*    <h1>SpectrumComponent</h1>*/}
-                    {/*)}*/}
                     {isImage && (
                         // <ImageComponent />
-                        <h1>ImageComponent</h1>
+                        <h1>Work in progress</h1>
                     )}
                 </div>
             </div>
