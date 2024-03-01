@@ -4,7 +4,7 @@ import moon from '../../assets/images/moon.svg';
 import sun from '../../assets/images/sun.svg';
 import deice from '../../assets/images/device.svg';
 
-function Header({ toggleSidebar }) {
+function Header({ toggleSidebar, titleText }) {
     const [dropdown, setDropdown] = useState(false);
     const [theme, setTheme] = useState('themeLight');
     const [icon, setIcon] = useState('');
@@ -49,7 +49,7 @@ function Header({ toggleSidebar }) {
                 <button className="navToggler" onClick={toggleSidebar}>
                     <img src={toggle} alt="toggler" />
                 </button>
-                Dashboard
+                {titleText}
             </div>
             <div className={'styleSwitcher'}>
                 <button onClick={showDropdown}>
