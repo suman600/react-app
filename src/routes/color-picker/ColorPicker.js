@@ -38,6 +38,7 @@ function ColorPicker() {
     const [isSampler, setIsSampler] = useState(true);
     const [isImage, setIsImage] = useState(false);
     const [currentColor, setCurrentColor] = useState('#6A1B9A')
+    const [currentImgColor, setCurrentImgColor] = useState('#6A1B9A')
     const [colorBoxData, setColorBoxData] = useState(null)
 
     function handleDataFromColorPalette(data) {
@@ -45,6 +46,9 @@ function ColorPicker() {
     }
     function handleDataFromColorBox(data) {
         setColorBoxData(data);
+    }
+    function getColorFromImgViewer(data){
+        setCurrentImgColor(data);
     }
     function clickSampler(){
         setIsSampler(true);
@@ -55,7 +59,9 @@ function ColorPicker() {
         setIsImage(true);
     }
     useEffect(() => {
-    }, [colorBoxData, currentColor]);
+        console.log('currentImgColor',currentImgColor)
+    }, [colorBoxData, currentColor,currentImgColor]);
+
     return (
         <div style={gridStyle}>
             <div className="card card--color-picker">
@@ -78,11 +84,11 @@ function ColorPicker() {
                         </div>
                     )}
                     {isImage && (
-                        <ImgViewer />
+                        <ImgViewer sendImgColorToParent={getColorFromImgViewer} />
                     )}
                 </div>
             </div>
-            <ColorData getColorBoxData={colorBoxData} getPalletColor={currentColor} />
+            <ColorData getColorBoxData={colorBoxData || currentImgColor} getPalletColor={currentColor} />
         </div>
 
     );
