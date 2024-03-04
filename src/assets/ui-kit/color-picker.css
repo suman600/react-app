@@ -85,3 +85,37 @@
     color: var(--dark-color);
     border-left-color: var(--dark-border);
 }
+.image-viewer{
+    width: 100%;
+    background: url("../images/transparent-bg.png") repeat;
+    height: 438px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image-viewer img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.file-input{
+    width: max-content;
+}
+.file-input input{
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.img-data{
+    width: max-content;
+}
+.img-flex{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.img-flex label{
+    margin-bottom: 0;
+}
