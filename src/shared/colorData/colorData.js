@@ -1,17 +1,25 @@
 import React, {useEffect, useState} from "react";
 
-function ColorData({getColorBoxData, getPalletColor}){
+function ColorData({getColorBoxData, getPalletColor, getImgColor, getIsImgTab}){
     const [colorBoxData, setColorBoxData] = useState(null)
     const [palletColor, setPalletColor] = useState(null)
+    const [imgColor, setImgColor] = useState(null)
 
     const handleClick = (e)=>{
         e.target.select();
     }
     useEffect(() => {
-        setColorBoxData(getColorBoxData);
-        setPalletColor(getPalletColor);
+        if (getColorBoxData !==null){
+            setColorBoxData(getColorBoxData);
+        }
+        if (getPalletColor !==null){
+            setPalletColor(getPalletColor);
+        }
+        if (getImgColor !==null){
+            setImgColor(getImgColor);
+        }
 
-    }, [getColorBoxData, getPalletColor]);
+    }, [getColorBoxData, getPalletColor, getImgColor, getIsImgTab]);
 
     function hexToRgb(hex, alpha = 1) {
         hex = String(hex);
@@ -76,20 +84,22 @@ function ColorData({getColorBoxData, getPalletColor}){
     let hexCode;
     let x;
     let y;
-
-    if (colorBoxData) {
-        hexCode = colorBoxData.color || palletColor;
-        x = colorBoxData.x;
-        y = colorBoxData.y;
-    } else {
-        hexCode = palletColor;
+    if (!getIsImgTab) {
+        if (colorBoxData?.color) {
+            hexCode = colorBoxData.color;
+            x = colorBoxData.x;
+            y = colorBoxData.y;
+        } else if (palletColor !==null) {
+            hexCode = palletColor;
+        }
+    } else if (imgColor) {
+        hexCode = imgColor;
         x = 0;
         y = 0;
     }
 
-
-    let rgbCode =  hexToRgb(hexCode,1)
-    let hslCode =  hexToHsla(hexCode,1)
+    let rgbCode =  hexToRgb((hexCode),1);
+    let hslCode =  hexToHsla(hexCode,1);
 
     return (
         <div className="card card--color-data">
@@ -99,13 +109,13 @@ function ColorData({getColorBoxData, getPalletColor}){
             <div className="card-body">
                 <div className="color-strip" style={{ backgroundColor: hexCode }}></div>
                 <div className="input-group">
-                    <span>HEX</span> <input type="text" onClick={handleClick}  value={hexCode} />
+                    <span>HEX</span> <input type="text" onClick={handleClick} value={hexCode}  onChange={()=>null}/>
                 </div>
                 <div className="input-group">
-                    <span>RGBA</span> <input type="text" onClick={handleClick} value={rgbCode} />
+                    <span>RGBA</span> <input type="text" onClick={handleClick} value={rgbCode} onChange={()=>null}/>
                 </div>
                 <div className="input-group">
-                    <span>HSL</span> <input type="text" onClick={handleClick} value={hslCode} />
+                    <span>HSL</span> <input type="text" onClick={handleClick} value={hslCode} onChange={()=>null} />
                 </div>
                 <div className="input-group">
                     <span>Pixel X</span> <input type="text" value={x} />

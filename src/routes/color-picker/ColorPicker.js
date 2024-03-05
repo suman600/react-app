@@ -37,9 +37,10 @@ function ColorPicker() {
     ];
     const [isSampler, setIsSampler] = useState(true);
     const [isImage, setIsImage] = useState(false);
+
     const [currentColor, setCurrentColor] = useState('#6A1B9A')
     const [currentImgColor, setCurrentImgColor] = useState('#6A1B9A')
-    const [colorBoxData, setColorBoxData] = useState(null)
+    const [colorBoxData, setColorBoxData] = useState('#ffffff')
 
     function handleDataFromColorPalette(data) {
         setCurrentColor(data)
@@ -59,7 +60,6 @@ function ColorPicker() {
         setIsImage(true);
     }
     useEffect(() => {
-        console.log('currentImgColor',currentImgColor)
     }, [colorBoxData, currentColor,currentImgColor]);
 
     return (
@@ -88,7 +88,7 @@ function ColorPicker() {
                     )}
                 </div>
             </div>
-            <ColorData getColorBoxData={colorBoxData || currentImgColor} getPalletColor={currentColor} />
+            <ColorData getColorBoxData={colorBoxData} getPalletColor={currentColor} getImgColor={currentImgColor} getIsImgTab={isImage} />
         </div>
 
     );
