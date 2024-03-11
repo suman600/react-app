@@ -2,9 +2,6 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
-    border-radius: 12px;
-    border: 1px solid var(--light-border);
-    padding: 24px;
     height: calc(100vh - 48px);
     overflow: hidden;
 }
