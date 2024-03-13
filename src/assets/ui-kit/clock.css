@@ -1,0 +1,29 @@
+.clock{
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: var(--light-color);
+    letter-spacing: 5px;
+    padding: 3px 12px;
+    background: var(--light-bg);
+    border-radius: 4px;
+    margin-left: auto;
+    margin-right: 12px;
+    user-select: none;
+}
+.clock .clock-text{
+    font-size: 15px;
+    font-family: "Orbitron", sans-serif;
+    font-weight: 600;
+    min-width: 36px;
+    text-align: center;
+}
+.clock span{
+    font-weight: 600;
+    font-size: 20px;
+    margin: 0 6px;
+}
+.themeDark .clock{
+    color: var(--dark-color);
+    background: var(--dark-bg);
+}

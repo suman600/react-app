@@ -1,0 +1,25 @@
+.card--client{
+    padding: 0;
+}
+.card--client .card-header{
+    background: var(--dark-header-bg);
+}
+.card--client ul{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+}
+.card--client ul li{
+    display: flex;
+    list-style: none;
+    gap: 6px;
+}
+
+.client-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}

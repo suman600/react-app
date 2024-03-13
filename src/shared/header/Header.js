@@ -3,6 +3,7 @@ import toggle from '../../assets/images/hamberger.svg';
 import moon from '../../assets/images/moon.svg';
 import sun from '../../assets/images/sun.svg';
 import deice from '../../assets/images/device.svg';
+import Clock from "../clock/Clock";
 
 function Header({ toggleSidebar, titleText }) {
     const [dropdown, setDropdown] = useState(false);
@@ -51,6 +52,7 @@ function Header({ toggleSidebar, titleText }) {
                 </button>
                 {titleText}
             </div>
+            <Clock></Clock>
             <div className={'styleSwitcher'}>
                 <button onClick={showDropdown}>
                     {icon === 'defaultIcon' && <img src={deice} style={{ width: 16, height: 16 }} alt="Default" />}
